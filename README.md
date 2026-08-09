@@ -10,7 +10,12 @@ library to install.
 
 ## App Preview
 
-<img width="617" height="911" alt="image" src="https://github.com/user-attachments/assets/59aff57b-a5de-465e-b6c9-85ac2fd1c365" />
+<img
+  width="185"
+  height="273"
+  alt="image"
+  src="https://github.com/user-attachments/assets/59aff57b-a5de-465e-b6c9-85ac2fd1c365"
+/>
 
 
 ## What sets it apart
