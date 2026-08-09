@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=Aqualizer
+GenericName=Audio Equalizer
+Comment=Shape your audio output with bass, vocal, acoustic and other presets
+Exec=aqualizer
+Icon=io.github.sholehbaktiabadi.Aqualizer
+Terminal=false
+Categories=AudioVideo;Audio;Mixer;GTK;
+Keywords=equalizer;eq;audio;sound;bass;treble;tone;pipewire;
+StartupNotify=true
+StartupWMClass=io.github.sholehbaktiabadi.Aqualizer

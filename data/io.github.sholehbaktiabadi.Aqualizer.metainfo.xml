@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>io.github.sholehbaktiabadi.Aqualizer</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0-or-later</project_license>
+
+  <name>Aqualizer</name>
+  <summary>Audio output equalizer for PipeWire</summary>
+
+  <developer id="io.github.sholehbaktiabadi">
+    <name>sholehbaktiabadi</name>
+  </developer>
+
+  <url type="homepage">https://github.com/sholehbaktiabadi/aqualizer</url>
+  <url type="bugtracker">https://github.com/sholehbaktiabadi/aqualizer/issues</url>
+
+  <description>
+    <p>
+      Aqualizer inserts a ten-band equalizer into PipeWire's audio path, with
+      ready-made presets such as Bass, Vocal, Acoustic and Night. Every band can
+      also be set by hand and saved as a preset of your own.
+    </p>
+    <p>
+      The filter follows whichever device is in use, including when you move
+      between speakers and a Bluetooth headset. Switching presets takes effect
+      instantly, without interrupting music that is already playing.
+    </p>
+    <p>
+      Signal processing uses PipeWire's built-in biquad filters, so there is no
+      extra DSP library to install.
+    </p>
+  </description>
+
+  <launchable type="desktop-id">io.github.sholehbaktiabadi.Aqualizer.desktop</launchable>
+
+  <provides>
+    <binary>aqualizer</binary>
+  </provides>
+
+  <categories>
+    <category>AudioVideo</category>
+    <category>Audio</category>
+  </categories>
+
+  <content_rating type="oars-1.1"/>
+
+  <releases>
+    <release version="0.1.0" date="2026-08-09">
+      <description>
+        <p>First release.</p>
+      </description>
+    </release>
+  </releases>
+</component>

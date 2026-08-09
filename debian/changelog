@@ -1,0 +1,10 @@
+aqualizer (0.1.0) unstable; urgency=medium
+
+  * First release.
+  * Ten-band equalizer built on PipeWire's built-in biquad filters.
+  * Eleven built-in presets, per-band manual sliders, and user presets.
+  * Automatic insertion mode: smart filter for ordinary devices, virtual sink
+    for Bluetooth.
+  * GTK4/libadwaita application alongside a command line interface.
+
+ -- sholehbaktiabadi <sholehbaktiabadi@gmail.com>  Sun, 09 Aug 2026 10:00:00 +0700

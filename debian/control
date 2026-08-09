@@ -1,0 +1,37 @@
+Source: aqualizer
+Section: sound
+Priority: optional
+Maintainer: sholehbaktiabadi <sholehbaktiabadi@gmail.com>
+Build-Depends: debhelper-compat (= 13),
+               dh-python,
+               pybuild-plugin-pyproject,
+               python3-all,
+               python3-setuptools
+Standards-Version: 4.7.0
+Rules-Requires-Root: no
+Homepage: https://github.com/sholehbaktiabadi/aqualizer
+
+Package: aqualizer
+Architecture: all
+Depends: ${misc:Depends},
+         ${python3:Depends},
+         gir1.2-adw-1,
+         gir1.2-gtk-4.0,
+         pipewire (>= 1.0),
+         pipewire-bin,
+         python3-gi,
+         wireplumber
+Recommends: pipewire-pulse
+Description: audio output equalizer for PipeWire
+ Aqualizer inserts a ten-band equalizer into PipeWire's audio path, with
+ ready-made presets such as Bass, Vocal, Acoustic and Night. Every band can also
+ be set by hand and saved as a preset of your own.
+ .
+ The filter follows whichever device is in use, including when moving between
+ speakers and a Bluetooth headset. Switching presets takes effect instantly
+ without interrupting music that is already playing, because gain values are sent
+ to the running graph rather than reloading the chain.
+ .
+ Signal processing uses PipeWire's built-in biquad filters, so no extra DSP
+ library such as LADSPA or LV2 is needed. Ships as both a GTK4 application and a
+ command line tool.

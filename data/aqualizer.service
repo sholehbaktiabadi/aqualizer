@@ -1,0 +1,18 @@
+[Unit]
+Description=Aqualizer — apply the saved equalizer preset to PipeWire
+Documentation=man:aqualizer(1)
+After=pipewire.service filter-chain.service
+Wants=filter-chain.service
+# Restarted along with PipeWire, because gain values live inside the
+# filter-chain process and disappear with it.
+PartOf=pipewire.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/aqualizer --apply-only
+# Exits without doing anything for users who have never used Aqualizer, so a
+# no-op here must not clutter the session log.
+SuccessExitStatus=0
+
+[Install]
+WantedBy=default.target

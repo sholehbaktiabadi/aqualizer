@@ -1,0 +1,85 @@
+.TH AQUALIZER 1 "2026-08-09" "aqualizer 0.1.0" "User Commands"
+.SH NAME
+aqualizer \- audio output equalizer for PipeWire
+.SH SYNOPSIS
+.B aqualizer
+.RI [ COMMAND ]
+.RI [ ARGUMENTS ]
+.SH DESCRIPTION
+.B Aqualizer
+inserts a ten\-band equalizer into PipeWire's audio path and provides ready\-made
+presets such as Bass, Vocal and Acoustic.
+Run with no arguments it opens a GTK window; the commands below give the same
+access without a graphical interface.
+.PP
+Signal processing uses PipeWire's built\-in biquad filters, so no extra DSP
+library is required. The chain configuration is written to
+.I ~/.config/pipewire/filter-chain.conf.d/99-aqualizer.conf
+and loaded by
+.BR filter-chain.service .
+.SH COMMANDS
+.TP
+.B status
+Show the insertion mode, target device, active preset and every band value.
+.TP
+.B list
+List the built\-in presets and your own.
+.TP
+.BI set " PRESET"
+Apply a preset, for example \fBaqualizer set bass\fR.
+.TP
+.BI bands " DB ..."
+Set all ten bands by hand, from 31 Hz up to 16 kHz.
+.TP
+.B on\fR, \fBoff
+Turn the equalizer on or bypass it without removing it.
+.TP
+.B devices
+List output devices, noting which mode each one requires.
+.TP
+.BI device " NAME"
+Pin the output to one device, or \fBauto\fR to follow the default device.
+.TP
+.BI save " NAME"
+Save the current band settings as a preset of your own.
+.TP
+.B install\fR, \fBuninstall
+Install the chain into PipeWire, or remove it and restore audio as it was.
+.SH OPTIONS
+.TP
+.B \-\-apply\-only
+Reapply the saved preset and exit, without opening the GUI. Used by
+.BR aqualizer.service .
+Does nothing when the user has never used Aqualizer or has turned it off.
+.TP
+.B \-\-version
+Print the version and exit.
+.SH INSERTION MODES
+Aqualizer chooses between two ways of inserting itself into the audio path.
+.TP
+.B smart
+The node is marked as a smart filter and WirePlumber inserts it on its own
+between applications and the device in use. The real device stays visible in the
+sound settings.
+.TP
+.B sink
+The node becomes a virtual sink that is made the default output, with its own
+output pinned to the real device. Used for devices that are themselves smart
+filters \(em in practice, Bluetooth devices \(em because smart mode would never
+be traversed there.
+.SH FILES
+.TP
+.I ~/.config/aqualizer/state.json
+Active preset, band values, device and mode.
+.TP
+.I ~/.config/aqualizer/presets/
+Your own presets, in JSON.
+.TP
+.I ~/.config/pipewire/filter-chain.conf.d/99-aqualizer.conf
+The generated filter\-chain configuration. Do not edit it by hand; it is
+rewritten every time a preset changes.
+.SH SEE ALSO
+.BR pw\-cli (1),
+.BR pw\-dump (1),
+.BR wpctl (1),
+.BR libpipewire\-module\-filter\-chain (7)

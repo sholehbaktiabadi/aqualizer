@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aqualizer"
+version = "0.1.0"
+description = "Audio output equalizer for PipeWire with ready-made presets"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "GPL-3.0-or-later" }
+authors = [{ name = "sholehbaktiabadi", email = "sholehbaktiabadi@gmail.com" }]
+classifiers = [
+    "Environment :: X11 Applications :: GTK",
+    "Intended Audience :: End Users/Desktop",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Topic :: Multimedia :: Sound/Audio",
+]
+# PyGObject is deliberately left out: on Debian/Ubuntu it comes from the
+# python3-gi system package rather than PyPI. See Depends in debian/control.
+dependencies = []
+
+[project.scripts]
+aqualizer = "aqualizer.cli:main"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]

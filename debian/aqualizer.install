@@ -1,0 +1,4 @@
+data/io.github.sholehbaktiabadi.Aqualizer.desktop       usr/share/applications
+data/io.github.sholehbaktiabadi.Aqualizer.svg           usr/share/icons/hicolor/scalable/apps
+data/io.github.sholehbaktiabadi.Aqualizer.metainfo.xml  usr/share/metainfo
+data/aqualizer.service                                  usr/lib/systemd/user

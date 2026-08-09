@@ -1,0 +1,15 @@
+#!/usr/bin/make -f
+
+export PYBUILD_NAME = aqualizer
+
+%:
+	dh $@ --with python3 --buildsystem=pybuild
+
+# The .install file puts the systemd unit straight into usr/lib/systemd/user/.
+# dh_installsystemduser scans that directory and generates the postinst/prerm
+# code to enable it, so no debian/*.user.service file is needed.
+override_dh_installsystemduser:
+	dh_installsystemduser --no-restart-on-upgrade
+
+override_dh_auto_test:
+	python3 -m unittest discover -s tests -v
